@@ -1,10 +1,10 @@
 class NoteController < ApplicationController
-  
+
   def index
     @note = Note.new
     @notes = Note.all
   end
-  
+
   def create
     note = Note.create(note_params)
     if note.save
@@ -12,8 +12,8 @@ class NoteController < ApplicationController
     else
       flash[:note_errors] = note.errors.full_messages
       redirect_to :back
+    end
   end
-end
 
   def clear
     Note.destroy_all
