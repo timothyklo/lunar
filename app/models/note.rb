@@ -1,5 +1,4 @@
 class Note < ActiveRecord::Base
   validates :text, presence: true, on: :create
-  validates :text, length: { minimum: 5 }, on: :create
-  validates :text, length: { maximum: 500 }, on: :create
+  validates_length_of :text, :minimum => 5, :maximum => 500, on: :create
 end
