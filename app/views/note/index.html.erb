@@ -1,23 +1,23 @@
 <h3>Submit your note here:</h3>
 
-<%= form_for @note, url: {action: "create"}, html: {class: "nifty_form"} do |f| %>
-<%= f.text_area :text, size: "40x20" %>
-<%= f.submit "Create" %>
-<% end %>
+  <%= form_for @note, url: {action: "create"}, html: {class: "nifty_form"} do |f| %>
+    <%= f.text_area :text, size: "40x20" %>
+    <%= f.submit "Create" %>
+  <% end %>
 
-<% if flash[:note_errors] %>
-<% flash[:note_errors].each do |error| %>
-<%= error %><br>
-<% end %>
-<% end %>
+  <% if flash[:note_errors] %>
+    <% flash[:note_errors].each do |error| %>
+      <%= error %><br>
+    <% end %>
+  <% end %>
 
-<% @notes.each do |note| %>
-<p><%= note.text %></p>
-<% end %>
+  <% @notes.each do |note| %>
+    <p><%= note.text %></p>
+  <% end %>
 
-<% if !@notes.empty? %>
-<form method="get" action="clear">
-  <input name="authenticity_token" value="<%= form_authenticity_token %>" type="aria-hidden">
-  <button type="submit" name="action">Clear</button>
-</form>
-<% end %>
+  <% if !@notes.empty? %>
+    <form method="get" action="clear">
+      <input name="authenticity_token" value="<%= form_authenticity_token %>" type="aria-hidden">
+      <button type="submit" name="action">Clear</button>
+    </form>
+  <% end %>
