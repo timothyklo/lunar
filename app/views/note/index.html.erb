@@ -13,7 +13,9 @@
 <p><%= note.text %></p>
 <% end %>
 
+<% if !@notes.empty? %>
 <form method="get" action="clear">
   <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
   <button type="submit" name="action">Clear</button>
 </form>
+<% end %>
